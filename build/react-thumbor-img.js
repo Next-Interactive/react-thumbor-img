@@ -245,7 +245,7 @@ function thumborURL(img) {
 
   urlComponents.push(img.src);
   var urlPath = urlComponents.join("/");
-  var signature = calculateSecureString(urlPath, img.securityKey);
+  var signature = calculateSecureString(encodeURI(urlPath), img.securityKey);
   return "".concat(img.server, "/").concat(signature, "/").concat(urlPath);
 }
 /**
