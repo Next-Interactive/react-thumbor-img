@@ -92,7 +92,7 @@ function thumborURL(img: TbImg) {
   urlComponents.push(img.src);
 
   const urlPath = urlComponents.join("/");
-  const signature = calculateSecureString(urlPath, img.securityKey)
+  const signature = calculateSecureString(encodeURI(urlPath), img.securityKey)
 
   return `${img.server}/${signature}/${urlPath}`;
 }
